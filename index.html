@@ -61,6 +61,7 @@
 
   
     <!--Codigo de Javascript para que funcione el reproductor, Puedes dejarlo en este archivo HTML o llevarlo a otro archivo fuera, dentro del directorio raíz-->
+    <!--Aquí van los archivos .mp3 que va a leer el reproductor, tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3"-->
     <script>
         const btnPlay = document.querySelector("#btn-play");
         const btnPlayIcon = document.querySelector("#btn-play-icon");
@@ -79,7 +80,7 @@
 
         let currentSong = 0;
         let repeatSong = false;
-<!--Aquí van los archivos .mp3 que va a leer el reproductor, tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3"-->
+
         const songs = [
             {
                 name: "Nombre de la Canción",
