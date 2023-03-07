@@ -1,93 +1,18 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
-    <title>Soy Jannine Rada</title>
-    <title>La Voz de tus Sentidos</title>
+
+    <title>Document</title>
 
 </head>
 
 <body>
-    <main>
-
-        <header>
-            <div class="cont__principal">
-                <h1>Voice Over * Jingles * Doblaje</h1>
-                <!-- <div class="animation-container">
-                    <div class="sound-container">
-                        <div class="rect-1"></div>
-                        <div class="rect-2"></div>
-                        <div class="rect-3"></div>
-                        <div class="rect-4"></div>
-                        <div class="rect-5"></div>
-                        <div class="rect-6"></div>
-                        <div class="rect-5"></div>
-                        <div class="rect-4"></div>
-                        <div class="rect-3"></div>
-                        <div class="rect-2"></div>
-                        <div class="rect-1"></div>
-                    </div>
-            </div> -->
-
-            </div>
-
-
-        </header>
-        <section class="principal">
-
-            <div class="container">
-
-                <div class="cont__logo">
-                    <div class="logo">
-                        <img src="./img/Logo1_Pintado.png" alt="logo">
-                    </div>
-                    <div id="hideme" class="clickme" onclick="show()">
-                        <img src="./img/CLICKME.png" alt="clickme">
-                    </div>
-                </div>
-                <div class="cont__menu">
-
-                    <nav class="menu" >
-                        <input id="showme" class="menu-toggler" type="checkbox" onclick="hide()">
-                        <label for="menu-toggler"></label>
-                        <ul>
-                            <li class="menu-item">
-                                <a title="whatsapp" class="fa-brands fa-whatsapp" href="https://wa.me/528110633292"></a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="contacto" class="fa-solid fa-address-book" href="tel:+528110633292"></a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="email" class="fa-solid fa-envelope"
-                                    href="mailto:jan.rada@barras-designs.com.mx"></a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="facebook" class="fa-brands fa-facebook"
-                                    href="https://www.facebook.com/shannine.rada"></a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Instagram" class="fa-brands fa-instagram"
-                                    href="https://www.instagram.com/shanninerada/"></a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Barras-Designs" class="fa-solid fa-earth-americas"
-                                    href="https://www.barras-designs.com.mx"></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
+    <main>    
+        
             <div class="container">
                 <div class="player">
                     <audio id="audio-player"></audio>
@@ -100,7 +25,7 @@
                             <span id="player-current-time">--:--</span>
                             <span id="player-duration">--:--</span>
                         </div>
-                        <!-- <progress id="player-progress"></progress> -->
+                        <progress id="player-progress"></progress>
                         <input type="range" id="player-progress" value="50" />
                     </div>
 
@@ -130,25 +55,12 @@
                     </div>
                 </div>
             </div>
-            <!--             <div class="container__video">
-                <iframe src="https://drive.google.com/file/d/1GzkdF92Y2dAdoHu1q5aTKnMyeuyqKyse/preview" width="640"
-                    height="480" allow="autoplay"></iframe>
-            </div> -->
+
         </section>
     </main>
 
-    <footer>
-        <div class="footer">
-            <div class="barras">
-
-                <h4>Barras Designs. Todos los derechos reservados.</h4>
-            </div>
-            <div class="hadestype">
-                <h4>Colaboración de arte con: HadeStype</h4>
-            </div>
-        </div>
-    </footer>
-    <script src="./js/main.js"></script>
+  
+    <!--Codigo de Javascript para que funcione el reproductor, Puedes dejarlo en este archivo HTML o llevarlo a otro archivo fuera, dentro del directorio raíz-->
     <script>
         const btnPlay = document.querySelector("#btn-play");
         const btnPlayIcon = document.querySelector("#btn-play-icon");
@@ -167,12 +79,12 @@
 
         let currentSong = 0;
         let repeatSong = false;
-
+<!--Aquí van los archivos .mp3 que va a leer el reproductor, tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3"-->
         const songs = [
             {
-                name: "La Voz de tus Sentidos",
-                author: "Jannine Rada",
-                path: "./songs/La Voz de tus Sentidos - Jannine rada.mp3",
+                name: "Nombre de la Canción",
+                author: "Autor",
+                path: "Ruta del archivo .mp3",
             }
             //   {
             //     name: "Jazzy Abstract Beat",
