@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Soy Jannine Rada</title>
+    <title>La Voz de tus Sentidos</title>
+
+</head>
+
+<body>
+    <main>
+
+        <header>
+            <div class="cont__principal">
+                <h1>Voice Over * Jingles * Doblaje</h1>
+                <!-- <div class="animation-container">
+                    <div class="sound-container">
+                        <div class="rect-1"></div>
+                        <div class="rect-2"></div>
+                        <div class="rect-3"></div>
+                        <div class="rect-4"></div>
+                        <div class="rect-5"></div>
+                        <div class="rect-6"></div>
+                        <div class="rect-5"></div>
+                        <div class="rect-4"></div>
+                        <div class="rect-3"></div>
+                        <div class="rect-2"></div>
+                        <div class="rect-1"></div>
+                    </div>
+            </div> -->
+
+            </div>
+
+
+        </header>
+        <section class="principal">
+
+            <div class="container">
+
+                <div class="cont__logo">
+                    <div class="logo">
+                        <img src="./img/Logo1_Pintado.png" alt="logo">
+                    </div>
+                    <div id="hideme" class="clickme" onclick="show()">
+                        <img src="./img/CLICKME.png" alt="clickme">
+                    </div>
+                </div>
+                <div class="cont__menu">
+
+                    <nav class="menu" >
+                        <input id="showme" class="menu-toggler" type="checkbox" onclick="hide()">
+                        <label for="menu-toggler"></label>
+                        <ul>
+                            <li class="menu-item">
+                                <a title="whatsapp" class="fa-brands fa-whatsapp" href="https://wa.me/528110633292"></a>
+                            </li>
+                            <li class="menu-item">
+                                <a title="contacto" class="fa-solid fa-address-book" href="tel:+528110633292"></a>
+                            </li>
+                            <li class="menu-item">
+                                <a title="email" class="fa-solid fa-envelope"
+                                    href="mailto:jan.rada@barras-designs.com.mx"></a>
+                            </li>
+                            <li class="menu-item">
+                                <a title="facebook" class="fa-brands fa-facebook"
+                                    href="https://www.facebook.com/shannine.rada"></a>
+                            </li>
+                            <li class="menu-item">
+                                <a title="Instagram" class="fa-brands fa-instagram"
+                                    href="https://www.instagram.com/shanninerada/"></a>
+                            </li>
+                            <li class="menu-item">
+                                <a title="Barras-Designs" class="fa-solid fa-earth-americas"
+                                    href="https://www.barras-designs.com.mx"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="player">
+                    <audio id="audio-player"></audio>
+
+                    <h2 id="song-name" class="song-name"></h2>
+                    <p id="song-author" class="song-author"></p>
+
+                    <div class="player-progress">
+                        <div class="progress-values">
+                            <span id="player-current-time">--:--</span>
+                            <span id="player-duration">--:--</span>
+                        </div>
+                        <!-- <progress id="player-progress"></progress> -->
+                        <input type="range" id="player-progress" value="50" />
+                    </div>
+
+                    <div class="player-buttons">
+                        <button id="btn-repeat" class="btn btn-repeat">
+                            <i class="bi bi-repeat"></i>
+                        </button>
+                        <button id="btn-prev" class="btn btn-prev">
+                            <i class="bi bi-rewind-fill"></i>
+                        </button>
+                        <button id="btn-play" class="btn btn-play">
+                            <i id="btn-play-icon" class="bi bi-play-fill"></i>
+                        </button>
+                        <button id="btn-next" class="btn btn-next">
+                            <i class="bi bi-fast-forward-fill"></i>
+                        </button>
+
+                        <div class="dropdown">
+                            <button id="btn-volume" class="btn btn-volume">
+                                <i class="bi bi-volume-up-fill"></i>
+                            </button>
+
+                            <div class="dropdown-content">
+                                <input type="range" id="player-volume" value="1" min="0" max="1" step="0.01" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--             <div class="container__video">
+                <iframe src="https://drive.google.com/file/d/1GzkdF92Y2dAdoHu1q5aTKnMyeuyqKyse/preview" width="640"
+                    height="480" allow="autoplay"></iframe>
+            </div> -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="barras">
+
+                <h4>Barras Designs. Todos los derechos reservados.</h4>
+            </div>
+            <div class="hadestype">
+                <h4>Colaboración de arte con: HadeStype</h4>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    <script>
+        const btnPlay = document.querySelector("#btn-play");
+        const btnPlayIcon = document.querySelector("#btn-play-icon");
+        const btnRepeat = document.querySelector("#btn-repeat");
+        const btnPrev = document.querySelector("#btn-prev");
+        const btnNext = document.querySelector("#btn-next");
+        const btnVolume = document.querySelector("#btn-volume");
+        const btnVolumeIcon = document.querySelector("#btn-volume i");
+        const playerVolume = document.querySelector("#player-volume");
+        const songName = document.querySelector("#song-name");
+        const songAuthor = document.querySelector("#song-author");
+        const playerCurrentTime = document.querySelector("#player-current-time");
+        const playerDuration = document.querySelector("#player-duration");
+        const playerProgress = document.querySelector("#player-progress");
+        const audioPlayer = document.querySelector("#audio-player");
+
+        let currentSong = 0;
+        let repeatSong = false;
+
+        const songs = [
+            {
+                name: "La Voz de tus Sentidos",
+                author: "Jannine Rada",
+                path: "./songs/La Voz de tus Sentidos - Jannine rada.mp3",
+            }
+            //   {
+            //     name: "Jazzy Abstract Beat",
+            //     author: "Coma Media",
+            //     path: "./assets/songs/Coma Media - Jazzy Abstract Beat.mp3",
+            //   },
+            //   {
+            //     name: "Sexy Fashion Beats",
+            //     author: "Coma Media",
+            //     path: "./assets/songs/Coma Media - Sexy Fashion Beats.mp3",
+            //   },
+            //   {
+            //     name: "Best Time",
+            //     author: "FASSounds",
+            //     path: "./assets/songs/FASSounds - Best Time.mp3",
+            //   },
+            //   {
+            //     name: "Guitar Electro Sport",
+            //     author: "Gvidon",
+            //     path: "./assets/songs/Gvidon - Guitar Electro Sport Trailer.mp3",
+            //   },
+        ];
+
+        btnPlay.addEventListener("click", () => togglePlaySong());
+        btnPrev.addEventListener("click", () => changeSong(false));
+        btnNext.addEventListener("click", () => changeSong());
+        btnRepeat.addEventListener("click", () => toggleRepeatSong());
+        playerVolume.addEventListener("input", () => changeVolume());
+        playerProgress.addEventListener("input", () => changeTime());
+        audioPlayer.addEventListener("timeupdate", () => timeUpdate());
+        audioPlayer.addEventListener("ended", () => ended());
+
+        const togglePlaySong = () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                btnPlayIcon.classList.replace("bi-play-fill", "bi-pause-fill");
+            } else {
+                audioPlayer.pause();
+                btnPlayIcon.classList.replace("bi-pause-fill", "bi-play-fill");
+            }
+        };
+
+        const changeSong = (next = true) => {
+            if (next && currentSong < songs.length - 1) {
+                currentSong++;
+            } else if (!next && currentSong > 0) {
+                currentSong--;
+            } else {
+                return;
+            }
+
+            updatePlayer();
+            togglePlaySong();
+        };
+
+        const updatePlayer = () => {
+            const song = songs[currentSong];
+
+            songName.innerHTML = song.name;
+            songAuthor.innerHTML = song.author;
+            audioPlayer.src = song.path;
+            playerProgress.value = audioPlayer.currentTime;
+        };
+
+        const toggleRepeatSong = () => {
+            repeatSong = !repeatSong;
+            btnRepeat.classList.toggle("btn-activated");
+        };
+
+        const timeUpdate = () => {
+            const { currentTime, duration } = audioPlayer;
+
+            if (isNaN(duration)) return;
+
+            playerDuration.innerHTML = formatSecondsToMinutes(duration);
+            playerCurrentTime.innerHTML = formatSecondsToMinutes(currentTime);
+            playerProgress.max = duration;
+            playerProgress.value = currentTime;
+        };
+
+        const changeVolume = () => {
+            const { value } = playerVolume;
+
+            audioPlayer.volume = value;
+
+            if (value == 0) {
+                btnVolumeIcon.classList.replace("bi-volume-up-fill", "bi-volume-mute-fill");
+            } else {
+                btnVolumeIcon.classList.replace("bi-volume-mute-fill", "bi-volume-up-fill");
+            }
+        };
+
+        const changeTime = () => {
+            audioPlayer.currentTime = playerProgress.value;
+        };
+
+        const formatSecondsToMinutes = (seconds) => {
+            return new Date(seconds * 1000).toISOString().slice(14, 19);
+        };
+
+        const ended = () => {
+            repeatSong ? togglePlaySong() : changeSong(true);
+        };
+
+        window.onload = () => {
+            updatePlayer();
+        };
+
+    </script>
+</body>
+
+</html>
