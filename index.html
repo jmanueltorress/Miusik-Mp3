@@ -11,79 +11,90 @@
 </head>
 
 <body>
-    <main>    
-        
+    <main>
+
             <div class="">
-                <div class="player">
-                    <audio id="audio-player"></audio>
+            <div class="player">
+                <audio id="audio-player"></audio>
 
-                    <h2 id="song-name" class="song-name"></h2>
-                    <p id="song-author" class="song-author"></p>
+                <h2 id="song-name" class="song-name"></h2>
+            
+                <p id="song-author" class="song-author"></p>
 
-                    <div class="player-progress">
-                        <div class="progress-values">
+                <div class="player-progress">
+                    <div class="progress-values">
                             <span id="player-current-time">--:--</span>
                             <span id="player-duration">--:--</span>
-                        </div>
-                        <progress id="player-progress"></progress>
-                        <input type="range" id="player-progress" value="50" />
                     </div>
+                        <progress id="player-progress"></progress>
+                    <input type="range" id="player-progress" value="50" />
+                </div>
 
-                    <div class="player-buttons">
+                <div class="player-buttons">
                         <button id="btn-repeat" class="btn btn-repeat">
-                            <i class="bi bi-repeat"></i>
-                        </button>
+                        <i class="bi bi-repeat"></i>
+                    </button>
                         <button id="btn-prev" class="btn btn-prev">
-                            <i class="bi bi-rewind-fill"></i>
-                        </button>
+                        <i class="bi bi-rewind-fill"></i>
+                    </button>
                         <button id="btn-play" class="btn btn-play">
-                            <i id="btn-play-icon" class="bi bi-play-fill"></i>
-                        </button>
-                        <button id="btn-next" class="btn btn-next">
-                            <i class="bi bi-fast-forward-fill"></i>
-                        </button>
+                        <i id="btn-play-icon" class="bi bi-play-fill"></i>
 
-                        <div class="dropdown">
+                    </button>
+                        <button id="btn-next" class="btn btn-next">
+                        <i class="bi bi-fast-forward-fill"></i>
+                    </button>
+
+
+                </div>
+                <div class="dropdown">
                             <button id="btn-volume" class="btn btn-volume">
-                                <i class="bi bi-volume-up-fill"></i>
+                        <i class="bi bi-volume-up-fill"></i>
                             </button>
 
-                            <div class="dropdown-content">
-                                <input type="range" id="player-volume" value="1" min="0" max="1" step="0.01" />
-                            </div>
+                        <div class="dropdown-content">
+                            <input type="range" id="player-volume" value="1" min="0" max="1" step="0.01" />
+
                         </div>
-                    </div>
+                    </button>
+
+
                 </div>
             </div>
+                </div>
+        </div>
 
         </section>
     </main>
+    
 
-  
     <!--Codigo de Javascript para que funcione el reproductor, Puedes dejarlo en este archivo HTML o llevarlo a otro archivo fuera, dentro del directorio raíz-->
     <!--Para que funcione correctamente el código de JS, vas a dejar los atributos "id" y los nombres de las clases "class", por que trabaja con JQUERY's en la estructura HTML, si haces algún cambio asegurate de modificar también el código de JS-->
     <!--En la constante "songs" se llaman los archivos .mp3 que va a leer el reproductor, es una estructura JSON, solo tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3". Asegurate de no modificar la estructura JSON para que no te arroje errores, la consola de tu explrador web será tu mejor amiga en este proyecto ;)-->
     <script>
         const btnPlay = document.querySelector("#btn-play");
-        const btnPlayIcon = document.querySelector("#btn-play-icon");
-        const btnRepeat = document.querySelector("#btn-repeat");
-        const btnPrev = document.querySelector("#btn-prev");
-        const btnNext = document.querySelector("#btn-next");
-        const btnVolume = document.querySelector("#btn-volume");
-        const btnVolumeIcon = document.querySelector("#btn-volume i");
-        const playerVolume = document.querySelector("#player-volume");
-        const songName = document.querySelector("#song-name");
-        const songAuthor = document.querySelector("#song-author");
-        const playerCurrentTime = document.querySelector("#player-current-time");
-        const playerDuration = document.querySelector("#player-duration");
-        const playerProgress = document.querySelector("#player-progress");
-        const audioPlayer = document.querySelector("#audio-player");
+const btnPlayIcon = document.querySelector("#btn-play-icon");
+const btnRepeat = document.querySelector("#btn-repeat");
+const btnPrev = document.querySelector("#btn-prev");
+const btnNext = document.querySelector("#btn-next");
+const btnVolume = document.querySelector("#btn-volume");
+const btnVolumeIcon = document.querySelector("#btn-volume i");
+const playerVolume = document.querySelector("#player-volume");
+const songName = document.querySelector("#song-name");
+const songAuthor = document.querySelector("#song-author");
+const playerCurrentTime = document.querySelector("#player-current-time");
+const playerDuration = document.querySelector("#player-duration");
+const playerProgress = document.querySelector("#player-progress");
+const audioPlayer = document.querySelector("#audio-player");
 
-        let currentSong = 0;
-        let repeatSong = false;
 
-        const songs = [
-            {
+let currentSong = 0;
+let repeatSong = false;
+//En la constante "songs" se llaman los archivos .mp3 que va a leer el reproductor, es una estructura JSON, solo tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3". Asegurate de no modificar la estructura JSON para que no te arroje errores, la consola de tu explrador web será tu mejor amiga en este proyecto ;)-->
+
+
+const songs = [
+    {
                 name: "Nombre de la Canción",
                 author: "Autor",
                 path: "Ruta del archivo .mp3",
@@ -108,94 +119,102 @@
             //     author: "Gvidon",
             //     path: "./assets/songs/Gvidon - Guitar Electro Sport Trailer.mp3",
             //   },
-        ];
+];
 
-        btnPlay.addEventListener("click", () => togglePlaySong());
-        btnPrev.addEventListener("click", () => changeSong(false));
-        btnNext.addEventListener("click", () => changeSong());
-        btnRepeat.addEventListener("click", () => toggleRepeatSong());
-        playerVolume.addEventListener("input", () => changeVolume());
-        playerProgress.addEventListener("input", () => changeTime());
-        audioPlayer.addEventListener("timeupdate", () => timeUpdate());
-        audioPlayer.addEventListener("ended", () => ended());
 
-        const togglePlaySong = () => {
-            if (audioPlayer.paused) {
-                audioPlayer.play();
-                btnPlayIcon.classList.replace("bi-play-fill", "bi-pause-fill");
-            } else {
-                audioPlayer.pause();
-                btnPlayIcon.classList.replace("bi-pause-fill", "bi-play-fill");
-            }
-        };
 
-        const changeSong = (next = true) => {
-            if (next && currentSong < songs.length - 1) {
-                currentSong++;
-            } else if (!next && currentSong > 0) {
-                currentSong--;
-            } else {
-                return;
-            }
 
-            updatePlayer();
-            togglePlaySong();
-        };
 
-        const updatePlayer = () => {
-            const song = songs[currentSong];
+btnPlay.addEventListener("click", () => togglePlaySong());
+btnPrev.addEventListener("click", () => changeSong(false));
+btnNext.addEventListener("click", () => changeSong());
+btnRepeat.addEventListener("click", () => toggleRepeatSong());
+playerVolume.addEventListener("input", () => changeVolume());
+playerProgress.addEventListener("input", () => changeTime());
+audioPlayer.addEventListener("timeupdate", () => timeUpdate());
+audioPlayer.addEventListener("ended", () => ended());
 
-            songName.innerHTML = song.name;
-            songAuthor.innerHTML = song.author;
-            audioPlayer.src = song.path;
-            playerProgress.value = audioPlayer.currentTime;
-        };
+const togglePlaySong = () => {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        btnPlayIcon.classList.replace("bi-play-fill", "bi-pause-fill");
+    } else {
+        audioPlayer.pause();
+        btnPlayIcon.classList.replace("bi-pause-fill", "bi-play-fill");
+    }
+};
 
-        const toggleRepeatSong = () => {
-            repeatSong = !repeatSong;
-            btnRepeat.classList.toggle("btn-activated");
-        };
+const changeSong = (next = true) => {
+    if (next && currentSong < songs.length - 1) {
+        currentSong++;
+    } else if (!next && currentSong > 0) {
+        currentSong--;
+    } else {
+        return;
+    }
 
-        const timeUpdate = () => {
-            const { currentTime, duration } = audioPlayer;
+    updatePlayer();
+    togglePlaySong();
+};
 
-            if (isNaN(duration)) return;
+const updatePlayer = () => {
+    const song = songs[currentSong];
 
-            playerDuration.innerHTML = formatSecondsToMinutes(duration);
-            playerCurrentTime.innerHTML = formatSecondsToMinutes(currentTime);
-            playerProgress.max = duration;
-            playerProgress.value = currentTime;
-        };
+    songName.innerHTML = song.name;
+    songAuthor.innerHTML = song.author;
+    audioPlayer.src = song.path;
+    playerProgress.value = audioPlayer.currentTime;
+};
 
-        const changeVolume = () => {
-            const { value } = playerVolume;
+const toggleRepeatSong = () => {
+    repeatSong = !repeatSong;
+    btnRepeat.classList.toggle("btn-activated");
+};
 
-            audioPlayer.volume = value;
+const timeUpdate = () => {
+    const { currentTime, duration } = audioPlayer;
 
-            if (value == 0) {
-                btnVolumeIcon.classList.replace("bi-volume-up-fill", "bi-volume-mute-fill");
-            } else {
-                btnVolumeIcon.classList.replace("bi-volume-mute-fill", "bi-volume-up-fill");
-            }
-        };
+    if (isNaN(duration)) return;
 
-        const changeTime = () => {
-            audioPlayer.currentTime = playerProgress.value;
-        };
+    playerDuration.innerHTML = formatSecondsToMinutes(duration);
+    playerCurrentTime.innerHTML = formatSecondsToMinutes(currentTime);
+    playerProgress.max = duration;
+    playerProgress.value = currentTime;
+};
 
-        const formatSecondsToMinutes = (seconds) => {
-            return new Date(seconds * 1000).toISOString().slice(14, 19);
-        };
+const changeVolume = () => {
+    const { value } = playerVolume;
 
-        const ended = () => {
-            repeatSong ? togglePlaySong() : changeSong(true);
-        };
+    audioPlayer.volume = value;
 
-        window.onload = () => {
-            updatePlayer();
-        };
+    if (value == 0) {
+        btnVolumeIcon.classList.replace("bi-volume-up-fill", "bi-volume-mute-fill");
+    } else {
+        btnVolumeIcon.classList.replace("bi-volume-mute-fill", "bi-volume-up-fill");
+    }
+};
+
+const changeTime = () => {
+    audioPlayer.currentTime = playerProgress.value;
+};
+
+const formatSecondsToMinutes = (seconds) => {
+    return new Date(seconds * 1000).toISOString().slice(14, 19);
+};
+
+const ended = () => {
+    repeatSong ? togglePlaySong() : changeSong(true);
+};
+
+
+window.onload = () => {
+    updatePlayer();
+};
 
     </script>
+   
+
+
 </body>
 
 </html>
