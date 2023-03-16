@@ -1,6 +1,6 @@
 # Proyecto2_codigo_reproductor
 ## Código del Reproductor y estructura HTML. 
-- GH page: https://jmanueltorress.github.io/proy2-reproductor-musica/index.html
+- GH page: https://royalmasterdevs.github.io/proy2-reproductor-musica/
 
 1. Demo design - IMG (Desktop, not still responsive)
 
