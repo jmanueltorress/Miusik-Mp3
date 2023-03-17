@@ -5,53 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Document</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="shortcut icon" href="./assets/img/ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>Musik</title>
 
 </head>
 
 <body>
     <main>
 
-            <div class="">
+<section class="sect-d">
+    <img id="cover" class="cover-img">
+</section>
+
+        <section class="container">
+
+
             <div class="player">
                 <audio id="audio-player"></audio>
 
                 <h2 id="song-name" class="song-name"></h2>
-            
+                <!-- <img id="song-cover" class="song-cover" src="" alt=""> -->
                 <p id="song-author" class="song-author"></p>
 
                 <div class="player-progress">
                     <div class="progress-values">
-                            <span id="player-current-time">--:--</span>
-                            <span id="player-duration">--:--</span>
+                        <span id="player-current-time">00:00</span>
+                        <span id="player-duration" class="pull-right">00:00</span>
                     </div>
-                        <progress id="player-progress"></progress>
-                    <input type="range" id="player-progress" value="50" />
+                    <progress id="player-progress">
+
+                    </progress>
+                    <!-- <input type="range" id="player-progress" value="50" /> -->
                 </div>
 
                 <div class="player-buttons">
-                        <button id="btn-repeat" class="btn btn-repeat">
+                    <button id="btn-repeat" class="btn btn-repeat pointer">
                         <i class="bi bi-repeat"></i>
                     </button>
-                        <button id="btn-prev" class="btn btn-prev">
+                    <button id="btn-prev" class="btn btn-prev pointer">
                         <i class="bi bi-rewind-fill"></i>
                     </button>
-                        <button id="btn-play" class="btn btn-play">
+                    <button id="btn-play" class="btn btn-play pointer">
                         <i id="btn-play-icon" class="bi bi-play-fill"></i>
 
                     </button>
-                        <button id="btn-next" class="btn btn-next">
+                    <button id="btn-next" class="btn btn-next pointer">
                         <i class="bi bi-fast-forward-fill"></i>
                     </button>
 
 
                 </div>
                 <div class="dropdown">
-                            <button id="btn-volume" class="btn btn-volume">
+                    <button id="btn-volume" class="btnbtn-volume">
                         <i class="bi bi-volume-up-fill"></i>
-                            </button>
-
                         <div class="dropdown-content">
                             <input type="range" id="player-volume" value="1" min="0" max="1" step="0.01" />
 
@@ -61,158 +70,16 @@
 
                 </div>
             </div>
-                </div>
-        </div>
+
 
         </section>
+
     </main>
     
 
-    <!--Codigo de Javascript para que funcione el reproductor, Puedes dejarlo en este archivo HTML o llevarlo a otro archivo fuera, dentro del directorio raíz-->
-    <!--Para que funcione correctamente el código de JS, vas a dejar los atributos "id" y los nombres de las clases "class", por que trabaja con JQUERY's en la estructura HTML, si haces algún cambio asegurate de modificar también el código de JS-->
-    <!--En la constante "songs" se llaman los archivos .mp3 que va a leer el reproductor, es una estructura JSON, solo tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3". Asegurate de no modificar la estructura JSON para que no te arroje errores, la consola de tu explrador web será tu mejor amiga en este proyecto ;)-->
-    <script>
-        const btnPlay = document.querySelector("#btn-play");
-const btnPlayIcon = document.querySelector("#btn-play-icon");
-const btnRepeat = document.querySelector("#btn-repeat");
-const btnPrev = document.querySelector("#btn-prev");
-const btnNext = document.querySelector("#btn-next");
-const btnVolume = document.querySelector("#btn-volume");
-const btnVolumeIcon = document.querySelector("#btn-volume i");
-const playerVolume = document.querySelector("#player-volume");
-const songName = document.querySelector("#song-name");
-const songAuthor = document.querySelector("#song-author");
-const playerCurrentTime = document.querySelector("#player-current-time");
-const playerDuration = document.querySelector("#player-duration");
-const playerProgress = document.querySelector("#player-progress");
-const audioPlayer = document.querySelector("#audio-player");
-
-
-let currentSong = 0;
-let repeatSong = false;
-//En la constante "songs" se llaman los archivos .mp3 que va a leer el reproductor, es una estructura JSON, solo tienes que indicarle desde donde los va llamar en la sección de "path", te sugiero crees una carpeta en el directorio raiz llamada "songs" por ejemplo, y ahí metas todos los .mp3. El nombre del archivo debe tener la estructura "nombre - autor.mp3". Asegurate de no modificar la estructura JSON para que no te arroje errores, la consola de tu explrador web será tu mejor amiga en este proyecto ;)-->
-
-
-const songs = [
-    {
-                name: "Nombre de la Canción",
-                author: "Autor",
-                path: "Ruta del archivo .mp3",
-            }
-            //   {
-            //     name: "Jazzy Abstract Beat",
-            //     author: "Coma Media",
-            //     path: "./assets/songs/Coma Media - Jazzy Abstract Beat.mp3",
-            //   },
-            //   {
-            //     name: "Sexy Fashion Beats",
-            //     author: "Coma Media",
-            //     path: "./assets/songs/Coma Media - Sexy Fashion Beats.mp3",
-            //   },
-            //   {
-            //     name: "Best Time",
-            //     author: "FASSounds",
-            //     path: "./assets/songs/FASSounds - Best Time.mp3",
-            //   },
-            //   {
-            //     name: "Guitar Electro Sport",
-            //     author: "Gvidon",
-            //     path: "./assets/songs/Gvidon - Guitar Electro Sport Trailer.mp3",
-            //   },
-];
-
-
-
-
-
-btnPlay.addEventListener("click", () => togglePlaySong());
-btnPrev.addEventListener("click", () => changeSong(false));
-btnNext.addEventListener("click", () => changeSong());
-btnRepeat.addEventListener("click", () => toggleRepeatSong());
-playerVolume.addEventListener("input", () => changeVolume());
-playerProgress.addEventListener("input", () => changeTime());
-audioPlayer.addEventListener("timeupdate", () => timeUpdate());
-audioPlayer.addEventListener("ended", () => ended());
-
-const togglePlaySong = () => {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-        btnPlayIcon.classList.replace("bi-play-fill", "bi-pause-fill");
-    } else {
-        audioPlayer.pause();
-        btnPlayIcon.classList.replace("bi-pause-fill", "bi-play-fill");
-    }
-};
-
-const changeSong = (next = true) => {
-    if (next && currentSong < songs.length - 1) {
-        currentSong++;
-    } else if (!next && currentSong > 0) {
-        currentSong--;
-    } else {
-        return;
-    }
-
-    updatePlayer();
-    togglePlaySong();
-};
-
-const updatePlayer = () => {
-    const song = songs[currentSong];
-
-    songName.innerHTML = song.name;
-    songAuthor.innerHTML = song.author;
-    audioPlayer.src = song.path;
-    playerProgress.value = audioPlayer.currentTime;
-};
-
-const toggleRepeatSong = () => {
-    repeatSong = !repeatSong;
-    btnRepeat.classList.toggle("btn-activated");
-};
-
-const timeUpdate = () => {
-    const { currentTime, duration } = audioPlayer;
-
-    if (isNaN(duration)) return;
-
-    playerDuration.innerHTML = formatSecondsToMinutes(duration);
-    playerCurrentTime.innerHTML = formatSecondsToMinutes(currentTime);
-    playerProgress.max = duration;
-    playerProgress.value = currentTime;
-};
-
-const changeVolume = () => {
-    const { value } = playerVolume;
-
-    audioPlayer.volume = value;
-
-    if (value == 0) {
-        btnVolumeIcon.classList.replace("bi-volume-up-fill", "bi-volume-mute-fill");
-    } else {
-        btnVolumeIcon.classList.replace("bi-volume-mute-fill", "bi-volume-up-fill");
-    }
-};
-
-const changeTime = () => {
-    audioPlayer.currentTime = playerProgress.value;
-};
-
-const formatSecondsToMinutes = (seconds) => {
-    return new Date(seconds * 1000).toISOString().slice(14, 19);
-};
-
-const ended = () => {
-    repeatSong ? togglePlaySong() : changeSong(true);
-};
-
-
-window.onload = () => {
-    updatePlayer();
-};
-
-    </script>
-   
+    
+    <script type="text/javascript" src="./app.js"></script>
+    <script src="https://kit.fontawesome.com/481d027235.js" crossorigin="anonymous"></script>
 
 
 </body>
