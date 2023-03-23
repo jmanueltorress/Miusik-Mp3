@@ -1,12 +1,27 @@
-# Proyecto2_codigo_reproductor
+# Proyecto2_reproductor_ musica
 ## Código del Reproductor y estructura HTML. 
-- GH page: https://royalmasterdevs.github.io/proy2-reproductor-musica/
+- GH page: https://jmanueltorress.github.io/reproductor-mp3/
+
+
 
 1. Demo design - IMG (Desktop, not still responsive)
 
-![Desktop use](https://github.com/RoyalMasterDevs/proy2-reproductor-musica/blob/test/assets/img/demo.png)
+![Desktop use](https://github.com/RoyalMasterDevs/proy2-reproductor-musica/blob/test/assets/img/demo2.png)
 
-2. code js in app.js
+2. ### Music source - credits 
+    ##### La musica utilizada en este proyecto es sin fines de lucro, no se pretende ganar dinero de el reproductor de musica, los 2 track agregados son propiedad de NCS. Con fines demostrativos de usabilidad de la app web.
+       -Track: OMAS & Awon - The Rage (feat. Micah Martin) [NCS Release]
+    Music provided by NoCopyrightSounds.
+    Watch:    • OMAS & Awon - The...  
+     Free Download / Stream: http://ncs.io/therage
+
+
+       -Track: Lost Sky - Fearless pt.II (feat. Chris Linton) [NCS Release]
+    Music provided by NoCopyrightSounds.
+    Watch:    • Lost Sky - Fearle...  
+    Free Download / Stream: http://ncs.io/Fearless2YO
+
+3. Code js in app.js
 
 `Variables & source`
 
@@ -42,3 +57,6 @@ let repeatSong = false;```
     }, .... /*add more elements after to ","*/
     
     ]; 
+
+
+
