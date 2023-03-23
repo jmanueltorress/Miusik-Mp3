@@ -18,8 +18,10 @@ let currentSong = 0;
 let repeatSong = false;
 
 //json vector de elementos de titulo de la cancion, autor, agregando archivos de audio e imagen
+//agregar archivos para su uso en carpeta assets img=source& music=path
 const songs = [
     {
+<<<<<<< HEAD
         name: "The Rage",
         author: "OMAS & Awon",
         path: "./assets/music/music1.mp3",//ruta de audio
@@ -72,7 +74,20 @@ const songs = [
          author: "autor music",
         path: "./assets/music/9.mp3",
         source: "./assets/img/imgd.png"
+=======
+        name: "Song 1",
+        author: "autor 1",
+        path: "./assets/music/1.mp3",//ruta de audio
+        source: "./assets/img/1.jpg" //ruta de imagen cover
+    },
+    {
+         name: "Song 2",
+         author: "autor 2",
+         path: "./assets/music/2.mp3",
+         source: "./assets/img/2.jpeg"
+>>>>>>> test
     }
+    //agregar coma a llave final para agregar mas elementos
     
     
 ];
