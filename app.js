@@ -18,61 +18,21 @@ let currentSong = 0;
 let repeatSong = false;
 
 //json vector de elementos de titulo de la cancion, autor, agregando archivos de audio e imagen
+//agregar archivos para su uso en carpeta assets img=source& music=path
 const songs = [
     {
-        name: "With Out me",
-        author: "Eminem",
+        name: "Song 1",
+        author: "autor 1",
         path: "./assets/music/1.mp3",//ruta de audio
         source: "./assets/img/1.jpg" //ruta de imagen cover
     },
     {
-         name: "Billie Jean",
-         author: "Michael Jackson",
+         name: "Song 2",
+         author: "autor 2",
          path: "./assets/music/2.mp3",
          source: "./assets/img/2.jpeg"
-    },
-    {
-         name: "21 pilots",
-         author: "Stressed Out",
-         path: "./assets/music/3.mp3",
-         source: "./assets/img/3.jpg"
-     },
-     {
-         name: "Believer",
-         author: "Imagine Dragons",
-         path: "./assets/music/4.mp3",
-         source: "./assets/img/4.jpg"
-     },
-     {
-        name: "In Da CLub",
-        author: "50 cent",
-        path: "./assets/music/5.mp3",
-        source: "./assets/img/5.jpg"
-    },
-    {
-        name: "Ella",
-        author: "Junior H",
-        path: "./assets/music/6.mp3",
-        source: "./assets/img/6.webp"
-    },
-    {
-        name: "Ojos Marrones",
-        author: "Lasso ft S.Yatra",
-        path: "./assets/music/7.mp3",
-        source: "./assets/img/7.jpg"
-    },
-    {
-        name: "Vol.15",
-        author: "Bzrp||ALEMAN",
-        path: "./assets/music/8.mp3",
-        source: "./assets/img/8.jpg"
-    },
-    {
-        name: "Janji",
-        author: "Heroes Tonight",
-        path: "./assets/music/9.mp3",
-        source: "./assets/img/9.png"
     }
+    //agregar coma a llave final para agregar mas elementos
     
     
 ];
