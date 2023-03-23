@@ -6,7 +6,7 @@
 
 1. Demo design - IMG (Desktop, not still responsive)
 
-![Desktop use](https://github.com/RoyalMasterDevs/proy2-reproductor-musica/blob/test/assets/img/demo2.png)
+![Desktop use](https://github.com/jmanueltorress/reproductor-mp3/blob/main/assets/img/demo2.png)
 
 2. ### Music source - credits 
     ##### La musica utilizada en este proyecto es sin fines de lucro, no se pretende ganar dinero de el reproductor de musica, los 2 track agregados son propiedad de NCS. Con fines demostrativos de usabilidad de la app web.
