@@ -1,4 +1,4 @@
-# Proyecto2_reproductor_ musica
+# Proyecto_reproductor_ musica
 ## Código del Reproductor y estructura HTML. 
 - GH page: https://jmanueltorress.github.io/reproductor-mp3/
 
