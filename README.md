@@ -1,6 +1,6 @@
 # Proyecto_reproductor_ musica
 ## Código del Reproductor y estructura HTML. 
-- GH page: https://jmanueltorress.github.io/reproductor-mp3/
+- GH page: https://jmanueltorress.github.io/Miusik-Mp3/
 
 
 
